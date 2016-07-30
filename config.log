@@ -1,0 +1,96 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:555: checking whether make sets ${MAKE}
+configure:630: checking host system type
+configure:651: checking target system type
+configure:669: checking build system type
+configure:715: checking whether build environment is sane
+configure:765: checking for gcc
+configure:878: checking whether the C compiler (gcc -g -O2 -Wall ) works
+configure:894: gcc -o conftest -g -O2 -Wall   conftest.c  1>&5
+configure:891: warning: return-type defaults to `int'
+configure:920: checking whether the C compiler (gcc -g -O2 -Wall ) is a cross-compiler
+configure:925: checking whether we are using GNU C
+configure:953: checking whether gcc accepts -g
+configure:985: checking how to run the C preprocessor
+configure:1069: checking for c++
+configure:1101: checking whether the C++ compiler (c++  ) works
+configure:1117: c++ -o conftest    conftest.C  1>&5
+configure:1143: checking whether the C++ compiler (c++  ) is a cross-compiler
+configure:1148: checking whether we are using GNU C++
+configure:1176: checking whether c++ accepts -g
+configure:1208: checking how to run the C++ preprocessor
+configure:1257: checking for X
+configure:1571: checking for dnet_ntoa in -ldnet
+configure:1612: checking for dnet_ntoa in -ldnet_stub
+configure:1660: checking for gethostbyname
+configure:1758: checking for connect
+configure:1850: checking for remove
+configure:1942: checking for shmat
+configure:2043: checking for IceConnectionNumber in -lICE
+configure:2093: checking for yacc
+configure:2138: checking for flex
+configure:2171: checking for flex
+configure:2205: checking for yywrap in -lfl
+configure:2247: checking lex output file root
+configure:2268: checking whether yytext is a pointer
+configure:2456: checking whether gcc needs -traditional
+configure:2510: checking for working aclocal
+configure:2523: checking for working autoconf
+configure:2536: checking for working automake
+configure:2549: checking for working autoheader
+configure:2562: checking for working makeinfo
+configure:2576: checking whether ln -s works
+configure:2599: checking for ranlib
+configure:2647: checking for true
+configure:2683: checking for false
+configure:2719: checking for cat
+configure:2754: checking for cp
+configure:2789: checking for mv
+configure:2824: checking for ar
+configure:2859: checking for makedepend
+configure:2894: checking for chmod
+configure:2929: checking for modload
+configure:2964: checking for modunload
+configure:2999: checking for modstat
+configure:3034: checking for mknod
+configure:3069: checking for rm
+configure:3104: checking for ls
+configure:3139: checking for id
+configure:3174: checking for test
+configure:3210: checking for cut
+configure:3245: checking for sed
+configure:3280: checking for hostname
+configure:3315: checking for grep
+configure:3350: checking for mkdir
+configure:3385: checking for rpcgen
+configure:3420: checking for touch
+configure:3455: checking for makeinfo
+configure:3490: checking for echo
+configure:3525: checking for m4
+configure:3560: checking for nm
+configure:3595: checking for ld
+configure:3630: checking for as
+configure:3665: checking for automake
+configure:3700: checking for autoconf
+configure:3735: checking for autoheader
+configure:3770: checking for wc
+configure:3805: checking for limits
+configure:3840: checking for tr
+configure:3875: checking for perl5
+configure:3910: checking for gensetdefs
+configure:3945: checking for kldstat
+configure:3980: checking for kldload
+configure:4015: checking for kldunload
+configure:4052: checking for xterm
+configure:4087: checking for rsh
+configure:4122: checking for csh
+configure:4157: checking for zsh
+configure:4192: checking for pwd
+configure:4227: checking for xhost
+configure:4264: checking whether #! works in shell scripts
+configure:4303: checking for osreldate.h
+configure:4357: gcc -o conftest -g -O2 -Wall   conftest.c  1>&5
+configure:4416: checking for ANSI C header files
+configure:4522: checking for pthread_create in -lc_r

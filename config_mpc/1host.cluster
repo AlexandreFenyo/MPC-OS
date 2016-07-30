@@ -1,0 +1,9 @@
+
+# $Id: 1host.cluster,v 1.1.1.1 1998/10/28 21:07:32 alex Exp $
+
+# primary cluster number is 0
+
+#type		name		cluster	pnode	IP		inside cluster	outside cluster
+node		eowyn-0		primary	0	localhost	TCP/8000
+node		eowyn-1		primary	1	localhost	TCP/8001
+

@@ -1,0 +1,97 @@
+
+$Id: ChangeLog,v 1.3 2000/03/04 19:48:59 alex Exp $
+
+mpc-1.0         (Jan    1996) :
+	First implementation of PUT.
+	This version has never been released.
+	
+mpc-1.1         (Feb 26 1996) :
+	Layer PUT available, SLR/P under construction.
+
+mpc-2.0 Alpha 1 (Mar 27 1996) :
+	Layer SLR/P available, but no debug stage done.
+
+mpc-2.0 Beta 1  (May 13 1996) :
+	Lots of bugs fixes in SLR/P.
+
+mpc-2.0 Beta 2  (May 20 1996) :
+	Bugs fixes in SLR/P.
+	Intensive tests of layer PUT.
+
+mpc-2.0         (May 22 1996) :
+	Layer SLR/V available.
+
+mpc-3.0	Alpha   (Jul  8 1996) :
+	Lots of comments added to the sources.
+	The distribution is split into a tree.
+	Autoconf is added to generate the configure script.
+	Automake is added to generate Makefile.in.
+
+mpc-4.0	        (Dec  22 1997) :
+	Lots of bug fixes...
+	The package was ported to FreeBSD-2.2.5
+	Added : support of the FastHSL board.
+	Added : software fixes for hardware bugs of the first run of PCI-DDC chip :
+	        support of normal aligned messages.
+	Added : testput{bench,recv,send}, utility to bench and test layer PUT.
+	Added : dumpPCIDDC : utility to dump the internal tables used by PCI-DDC.
+	Added : optimized secure layers handling hardware faults :
+ 	        DDSCP, RFCP, SFCP, MICP.
+	Added : multithreaded object request broker development toolkit.
+	In project : manager for negociation of resources
+ 	             (based on the multithreaded ORB).
+	Added : automatic calculation of RCube routing tables based on a description
+	        of the network topology.
+	Added : mpcview : a graphical interface to manage PCI-DDC.
+
+mpc-4.1         (Jan 1998) :
+        New bug fixes...
+        Added : advanced memory locking system that wires the ranges of virtual
+                addresses during inter-nodes DMA.
+
+mpc-4.2         (Feb 1998) :
+	New bug fixes...
+	Minor changes.
+
+mpc-4.3         (Mar 14 1998) :
+	New bug fixes...
+	Added : many additions to the ORB (but it is not already functionnal)
+
+mpc-5.0	        (Apr 1998) :
+	multithreaded object request broker development toolkit released.
+	manager (based on the multithreaded ORB) works pretty well.
+	Added : MDCP, a new layer on top of SLR/P, providing input/output buffering.
+	        MDCP provides read/write primitives without any callback function
+		to handle -> easier to use than lower level kernel layers.
+		Note that MDCP is still `zero-copy' if the write() primitive
+		is called before the read() one.
+	Added : SELECT implementation to wait for events on file descriptors
+	        and channels in the same time.
+	Added : the Loader daemon handles task activation.
+	Added : the manager now handles new task activation (throw communications
+	        with the Loader daemon), application classes creation (task
+		managment), channel negociations between tasks and
+		allocation/deallocation	of kernel data structures for
+		communication end-points.
+	Added : libmpc user level library allowing the user to make requests
+	        to the manager (spawn tasks, channel allocation...) and to
+		the MDCP kernel layer.
+	Added : libsocketwrap is a shared object that wraps the socket API
+	        and maps those syscalls into libmpc calls. This library
+		can be dynamically linked into any application to provide
+		a binary compatible port to MPC-OS.
+		libsocketwrap has been tested with the MPICH implementation
+		of MPI, on a 2 nodes MPC computer (testbench : distributed
+		computation of PI).
+		libsocketwrap needs a little work to become fully functionnal
+		with other high level toolkits.
+	        
+mpc-5.1         (Feb 1999) :
+	The documentation (directory docs) is removed : a pointer to the
+	web server (http://mpc.lip6.fr) replaces the whole documentation.
+	The package is ported to FreeBSD-3.0.
+	Some bug fixes are performed.
+
+mpc-5.1.1	(Feb 2000) :
+	Added: support for PCI-DDC 2nd Run.
+

@@ -1,0 +1,97 @@
+
+$Id: AUTHORS,v 1.4 2000/03/04 19:48:59 alex Exp $
+
+Authors :
+
+. Alexandre Fenyö (alex@asim.lip6.fr, fenyo@enst.fr) :
+
+  - maintainer of the whole software distribution
+
+  - 1st version of the emulator
+
+  - user-level applications :
+    hslclient     (RPC transport and configuration client)
+    hslserver     (RPC transport and configuration server)
+    getevents     (kernel events retriever)
+    vmspace       (memory analyser)
+    init_pcibus   (configuration of PCI bus)
+    readpci       (read from PCI configuration space on a device)
+    writepci      (write to PCI configuration space on a device)
+    readphys      (direct read in physical memory)
+    writephys     (direct write in physical memory)
+    dumpPCIDDC    (dump the internal tables used by PCI-DDC)
+    dumptables    (dump internal tables used by SLR/SCP)
+    testputbench  (benchmark and test program for layer PUT)
+    testputrecv   (test program for layer PUT)
+    testputsend   (direct access to PUT API)
+    prot_dump     (dump the MPC-OS vm map entries used to wire data)
+    prot_garbcoll (start a garbage collection inside the MPC-OS vm map entries)
+    ...
+
+  - mpcview : a graphical interface to manage PCI-DDC
+
+  - user-level layer PUT (useraccess library)
+
+  - examples of use (addlpe, fetchobj, on, off, receivelpe, testrecv,
+                     testrecv2, testrecv2wait, testrecvv, testsend, testsend2,
+                     testsend2wait, testsendv, testuseraccess, vmtest,
+                     prot_wire)
+
+  - basic kernel communication layers :
+    driver, PUT, SLR/P, SLR/V
+
+  - optimized implementation of secure layers : DDSCP, RFCP, SFCP, MICP
+    (this is a new optimized implementation, distinct from the first one made
+     by K. Mana)
+
+  - high level kernel communications layers :
+    MDCP, SELECT
+
+  - advanced memory locking system (wiring the ranges of virtual addresses
+    during inter-nodes DMA)
+
+  - multithreaded object request broker development toolkit
+
+  - manager for negociation of resources
+    (built on top of the multithreaded ORB)
+
+  - user-lever libmpc library to access communication services from MDCP
+    and high level services from the Manager (SLR{P,V} and MDCP channels
+    allocation, spawning tasks...)
+
+  - Sockets (connected mode only) emulation on top of libmpc
+
+  - autoconfiguration (aclocal/automake/autoconf)
+
+  - ported the whole package from FreeBSD-2.1.0 to FreeBSD-2.2.5, FreeBSD-3.0
+    and FreeBSD-3.1
+
+  - ported interval routing program from Sparc/Linux to FreeBSD
+
+  - integration of the interval routing program in this package
+
+  - support for the FastHSL board - PCI-DDC/Rcube
+    (with help of Franck Wasjburt)
+
+  - mle2raw.pl : conversion utility from mle format to R3 raw routing
+                 tables format
+
+  - wrote the software documentations
+
+. Karim Mana :
+
+  - coded the first implementation of the secure kernel communication layers
+    (not included in this package)
+
+  - integrated the reconfigurable version and the secure layers version
+    into a single package (not included in this package)
+
+. Fabrice Ilpons & Abdelhafid Bouaraoua :
+
+  - routing tables calculation (ir utility for Sparc/Linux : interval routing)
+
+. Some students (Maitrises de Sciences et Techniques) :
+
+  - 1st version of the monitor (dynamically reconfigurable version of MPC-OS,
+    not included in this package)
+

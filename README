@@ -1,0 +1,24 @@
+
+$Id: README,v 1.2 2000/02/07 18:51:55 alex Exp $
+
+This distribution contains the low-level drivers and protocols
+implementation for the MPC parallel computer designed at laboratoire
+LIP6, Université Paris 6, France.
+
+Please, feel free to contact fenyo@asim.lip6.fr for further informations.
+
+                                    ***
+
+--enable and --with options recognized:
+  --with-x                      use the X Window System (default)
+  --disable-stabs-pcibus        require launching init_pcibus after modload (no by default)
+  --enable-alternate-kernel=ARG specify an alternate kernel to work with (default /kernel)
+  --enable-start-x=host1/host2  specify two hosts the package must run on (no default)
+  --enable-secure-protocol      build the secure version of the protocol (not by default)
+  --enable-monitor              build the reconfigurable version of the package
+                                (not by default)
+  --enable-debug                generate debugging and warning code (default)
+  --enable-perfmon              generate performance monitoring code (not by default)
+  --enable-stats                generate statistics code (not by default)
+  --disable-kld                 use modload instead of kldload for kernel modules
+EOF

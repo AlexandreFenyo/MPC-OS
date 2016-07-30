@@ -1,0 +1,32 @@
+	component router 
+	begin
+	
+	  interface
+       	   bidirectional north link[0,3][2];
+       	   bidirectional south link[4,7][2];
+	  end
+	
+	  node configuration
+
+	   bit  header_length[8],
+	        header_deletion[8];
+	   int	intervals[8][8],
+	        lists[8][8][8];
+	   byte  used_links[8];
+	
+	  end
+	 
+	 component configuration
+           int in_fifo_depth=64,
+               outfifo_depth=5,
+               flit=32;
+	 end
+	 probes
+            private int activity;
+            shared  long throughput;
+            shared  long total_links;
+                   
+         end
+	end
+	
+	

@@ -1,0 +1,55 @@
+% This is language.dat as of November 25th, 1997 at (your site)
+%
+% This file coming from the distrib. "french" is "babel" compatible
+%                                                (since V3.6 of Babel)
+%
+% This file tells TeX which are the languages and dialects, 
+%                     which are the hyphenation files (patterns),
+%                 and which are the hyphenation exception files.
+%                     (For syntax look at the bottom.)
+%
+% CHECK IF THIS IS THE ONLY language.dat FILE OF YOUR SYSTEM, otherwise
+% remove (or rename) all unused, and keep just (this) one.
+%
+%=============================================================================%
+%| Name     | patterns file | exceptions file % comments                     |%
+%=============================================================================%
+  usenglish  ushyphen.tex   % this is the original default TeX language...
+                            % Don. Knuth's hyphen.tex file can be used instead
+   =english    enhyph.tex     enhyphex.tex    % default language is "english"
+     french    frhyph.tex     frhyphex.tex    % ici on parle francais
+    =patois %                                 % et ses patois...
+   dumylang  dumyhyph.tex   % for testing a new language.
+nohyphenation zerohyph.tex  % a language with no patterns at all.
+%=============================================================================%
+% Each of the three parts (language_name, patterns_file and exceptions_file)
+% must be separated by a blank space. You can omit any of the file names if 
+% your language has not this component.
+%
+% First language will have language number 0 when used by hyconfig.tex
+% at an INITeX time or used by french.sty version > 3.
+%                      (once INITeX is done don't change the language order!)
+%
+% An "=" in front of the language name means that this language must use the
+% same language number that the previous language. 
+% So you can use the equal sign to define dialects.
+% If this is the first language then the next language will be numbered 0 too; 
+% the language name is the only thing used here; patterns and  exceptions file
+% are never taken in account in this special dialect case.
+%
+% At INITeX time, the basic files to congigurate are:
+% - language.dat, (that file you are reading!),
+% - plain.tex for plain TeX format, which calls "\input hyphen".
+%   In order to use "language.dat" for language definition you have to replace
+%   "\input hyphen" by "\input hyphen.cfg". Then do as for LaTeX:
+% - hyphen.cfg for LaTeX format which will load the master hyphenation code 
+%   hyconfig.tex that does the job of loading the appropriate files. 
+%(- lthyphen.tex for old LaTeX 2.09 versions)
+%
+% Notice that "enhyph.tex" and "enhyphex.tex" are often derivates of the
+% original "hyphen.tex" (in fact only a split between patterns and exceptions).
+% But you must know that english (ie british) patterns exist. See archives. 
+%
+% Notice also that few TeX engines may require non-empty hyphenation
+% "exceptions file" fields. In such cases provide null.tex.
+%=============================================================================%

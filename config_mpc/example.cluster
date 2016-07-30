@@ -1,0 +1,8 @@
+
+# $Id: example.cluster,v 1.2 1999/01/11 19:30:12 alex Exp $
+
+# primary cluster number is 0
+
+#type		name		cluster	pnode	IP		inside cluster	outside cluster
+intercluster	isa-3-0	primary	0	isa-3-0		TCP/8000        TCP/9000
+node		aptinfo-3-0	primary	1	aptinfo-3-0		TCP/8000

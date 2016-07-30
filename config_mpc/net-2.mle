@@ -1,0 +1,21 @@
+
+-- $Id: net-2.mle,v 1.1.1.1 1998/10/28 21:07:32 alex Exp $
+
+[2] NODE routeur_instance :
+[2] NODE generat_instance :
+
+NETWORK net2
+DO
+
+  SET routeur_instance [0] (type := "router")
+  SET routeur_instance [1] (type := "router")
+  SET generat_instance [0] (type := "generator")
+  SET generat_instance [1] (type := "generator")
+
+  CONNECT generat_instance [0] [link] [0] TO routeur_instance [0] [link] [0]
+  CONNECT generat_instance [1] [link] [0] TO routeur_instance [1] [link] [0]
+
+  CONNECT routeur_instance [0] [link] [1] TO routeur_instance [1] [link] [1]
+
+:
+

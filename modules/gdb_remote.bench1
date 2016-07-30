@@ -1,0 +1,9 @@
+set height 0
+file /kernel
+cd /sys/i386/conf
+add-symbol-file /modules/cmemdriver_mod.ko 0xc0a9ab14
+add-symbol-file /modules/hsldriver_mod.ko 0xc0aa9e30
+target remote /dev/cuaa0
+delete
+break cmem.c:dev_write
+info breakpoints

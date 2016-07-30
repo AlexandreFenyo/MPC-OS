@@ -1,0 +1,93 @@
+# This file is a shell script that caches the results of configure
+# tests run on this system so they can be shared between configure
+# scripts and configure runs.  It is not useful on other systems.
+# If it contains results you don't want to keep, you may remove or edit it.
+#
+# By default, configure uses ./config.cache as the cache file,
+# creating it if it does not exist already.  You can give configure
+# the --cache-file=FILE option to use a different cache file; that is
+# what configure does when it calls configure scripts in
+# subdirectories, so they share the cache.
+# Giving --cache-file=/dev/null disables caching, for debugging configure.
+# config.status only pays attention to the cache file if you give it the
+# --recheck option to rerun configure.
+#
+ac_cv_prog_cc_works=${ac_cv_prog_cc_works='yes'}
+ac_cv_path_FALSE=${ac_cv_path_FALSE='/usr/bin/false'}
+ac_cv_path_CHMOD=${ac_cv_path_CHMOD='/bin/chmod'}
+ac_cv_path_MODUNLOAD=${ac_cv_path_MODUNLOAD='/sbin/modunload'}
+ac_cv_path_M4=${ac_cv_path_M4='/usr/bin/m4'}
+ac_cv_prog_CXXCPP=${ac_cv_prog_CXXCPP='c++ -E'}
+ac_cv_lib_fl_yywrap=${ac_cv_lib_fl_yywrap='yes'}
+ac_cv_path_ECHO=${ac_cv_path_ECHO='/bin/echo'}
+ac_cv_path_AUTOMAKE=${ac_cv_path_AUTOMAKE='/usr/local/bin/automake'}
+ac_cv_path_YACC=${ac_cv_path_YACC='/usr/bin/yacc'}
+ac_cv_path_MAKEDEPEND=${ac_cv_path_MAKEDEPEND='/usr/X11R6.3/bin/makedepend'}
+ac_cv_path_XHOST=${ac_cv_path_XHOST='/usr/X11R6.3/bin/xhost'}
+ac_cv_prog_cc_g=${ac_cv_prog_cc_g='yes'}
+ac_cv_path_RPCGEN=${ac_cv_path_RPCGEN='/usr/bin/rpcgen'}
+ac_cv_prog_CXX=${ac_cv_prog_CXX='c++'}
+ac_cv_path_CAT=${ac_cv_path_CAT='/bin/cat'}
+ac_cv_prog_RANLIB=${ac_cv_prog_RANLIB='ranlib'}
+ac_cv_path_HOSTNAME=${ac_cv_path_HOSTNAME='/bin/hostname'}
+ac_cv_path_AUTOCONF=${ac_cv_path_AUTOCONF='/usr/local/bin/autoconf'}
+ac_cv_prog_cxx_cross=${ac_cv_prog_cxx_cross='no'}
+ac_cv_path_ID=${ac_cv_path_ID='/usr/bin/id'}
+ac_cv_path_MKDIR=${ac_cv_path_MKDIR='/bin/mkdir'}
+ac_cv_header_osreldate_h=${ac_cv_header_osreldate_h='yes'}
+ac_cv_path_SED=${ac_cv_path_SED='/usr/bin/sed'}
+ac_cv_prog_gcc_traditional=${ac_cv_prog_gcc_traditional='no'}
+ac_cv_path_MKNOD=${ac_cv_path_MKNOD='/sbin/mknod'}
+ac_cv_path_LD=${ac_cv_path_LD='/usr/bin/ld'}
+ac_cv_path_CSH=${ac_cv_path_CSH='/bin/csh'}
+ac_cv_prog_CC=${ac_cv_prog_CC='gcc'}
+ac_cv_path_KLDSTAT=${ac_cv_path_KLDSTAT='/sbin/kldstat'}
+ac_cv_lib_dnet_stub_dnet_ntoa=${ac_cv_lib_dnet_stub_dnet_ntoa='no'}
+ac_cv_func_remove=${ac_cv_func_remove='yes'}
+ac_cv_prog_lex_root=${ac_cv_prog_lex_root='lex.yy'}
+ac_cv_path_GREP=${ac_cv_path_GREP='/usr/bin/grep'}
+ac_cv_path_CP=${ac_cv_path_CP='/bin/cp'}
+ac_cv_path_AR=${ac_cv_path_AR='/usr/bin/ar'}
+ac_cv_prog_LN_S=${ac_cv_prog_LN_S='ln -s'}
+ac_cv_path_AS=${ac_cv_path_AS='/usr/bin/as'}
+ac_cv_have_x=${ac_cv_have_x='have_x=yes 		ac_x_includes=/usr/X11R6/include ac_x_libraries=/usr/X11R6/lib'}
+ac_cv_func_shmat=${ac_cv_func_shmat='yes'}
+ac_cv_path_MODSTAT=${ac_cv_path_MODSTAT='/usr/bin/modstat'}
+ac_cv_header_stdc=${ac_cv_header_stdc='yes'}
+ac_cv_lib_dnet_dnet_ntoa=${ac_cv_lib_dnet_dnet_ntoa='no'}
+ac_cv_path_PERL=${ac_cv_path_PERL='/usr/bin/perl5'}
+ac_cv_sys_interpreter=${ac_cv_sys_interpreter='yes'}
+ac_cv_prog_make_make_set=${ac_cv_prog_make_make_set='yes'}
+ac_cv_prog_cxx_works=${ac_cv_prog_cxx_works='yes'}
+ac_cv_func_gethostbyname=${ac_cv_func_gethostbyname='yes'}
+ac_cv_path_TOUCH=${ac_cv_path_TOUCH='/usr/bin/touch'}
+ac_cv_path_AUTOHEADER=${ac_cv_path_AUTOHEADER='/usr/local/bin/autoheader'}
+ac_cv_lib_c_r_pthread_create=${ac_cv_lib_c_r_pthread_create='yes'}
+ac_cv_path_WC=${ac_cv_path_WC='/usr/bin/wc'}
+ac_cv_path_LIMITS=${ac_cv_path_LIMITS='/usr/bin/limits'}
+ac_cv_path_NM=${ac_cv_path_NM='/usr/bin/nm'}
+ac_cv_prog_cc_cross=${ac_cv_prog_cc_cross='no'}
+ac_cv_prog_gcc=${ac_cv_prog_gcc='yes'}
+ac_cv_path_KLDLOAD=${ac_cv_path_KLDLOAD='/sbin/kldload'}
+ac_cv_path_MAKEINFO=${ac_cv_path_MAKEINFO='/usr/bin/makeinfo'}
+ac_cv_path_PWD=${ac_cv_path_PWD='/eowyn_home/alex/cvs/alex/MPC-OS-5'}
+ac_cv_prog_cxx_g=${ac_cv_prog_cxx_g='yes'}
+ac_cv_path_CUT=${ac_cv_path_CUT='/usr/bin/cut'}
+ac_cv_prog_gxx=${ac_cv_prog_gxx='yes'}
+ac_cv_path_RM=${ac_cv_path_RM='/bin/rm'}
+ac_cv_path_LS=${ac_cv_path_LS='/bin/ls'}
+ac_cv_path_GENSETDEFS=${ac_cv_path_GENSETDEFS='/usr/bin/gensetdefs'}
+ac_cv_path_RSH=${ac_cv_path_RSH='/usr/bin/rsh'}
+ac_cv_prog_CPP=${ac_cv_prog_CPP='gcc -E'}
+ac_cv_func_connect=${ac_cv_func_connect='yes'}
+ac_cv_prog_lex_yytext_pointer=${ac_cv_prog_lex_yytext_pointer='yes'}
+ac_cv_path_MODLOAD=${ac_cv_path_MODLOAD='/sbin/modload'}
+ac_cv_path_MV=${ac_cv_path_MV='/bin/mv'}
+ac_cv_path_KLDUNLOAD=${ac_cv_path_KLDUNLOAD='/sbin/kldunload'}
+ac_cv_path_TRUE=${ac_cv_path_TRUE='/usr/bin/true'}
+ac_cv_path_TEST=${ac_cv_path_TEST='/bin/test'}
+ac_cv_lib_ICE_IceConnectionNumber=${ac_cv_lib_ICE_IceConnectionNumber='yes'}
+ac_cv_prog_LEX=${ac_cv_prog_LEX='flex'}
+ac_cv_path_TR=${ac_cv_path_TR='/usr/bin/tr'}
+ac_cv_path_XTERM=${ac_cv_path_XTERM='/usr/X11R6.3/bin/xterm'}
+ac_cv_path_ZSH=${ac_cv_path_ZSH='/usr/local/bin/zsh'}

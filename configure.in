@@ -1,0 +1,459 @@
+
+# $Id: configure.in,v 1.9 2000/03/08 21:45:21 alex Exp $
+
+#     `AC_INIT(FILE)'
+#     checks for programs
+#     checks for libraries
+#     checks for header files
+#     checks for typedefs
+#     checks for structures
+#     checks for compiler characteristics
+#     checks for library functions
+#     checks for system services
+#     `AC_OUTPUT([FILE...])'
+
+AC_INIT(modules/ddslrpp.h)
+
+# Since the package is not flat :
+AC_PROG_MAKE_SET
+
+# To compute $target_os
+AC_CANONICAL_SYSTEM
+
+# Programs to install...
+AC_ARG_PROGRAM
+
+# Make sure the build environment is sane
+AM_SANITY_CHECK
+
+CFLAGS="-g -O2 -Wall"
+
+PACKAGE=mpc
+AC_SUBST(PACKAGE)
+
+VERSION=5.3
+AC_SUBST(VERSION)
+
+# Looking for particular programs
+AC_PROG_CC
+AC_PROG_CPP
+AC_PROG_CXX
+AC_PROG_CXXCPP
+
+# Looking for X11
+AC_PATH_XTRA
+
+# Lex & Yacc
+# Do not use AC_PROG_YACC since our yacc grammar
+# is not compatible with bison...
+AC_PATH_PROG(YACC, yacc)
+
+# AC_PROG_LEX and AC_DECL_YYTEXT
+# Since automake will scan this file, it will generate a warning on
+# recent FreeBSD releases (>= 3.0) because it thinks that the obsolete
+# AC_PROC_LEX and AC_DECL_YYTEXT macros are used.
+if /bin/test `/usr/bin/uname -r | /usr/bin/sed 's/^\(..\).*-RELEASE/\1x-RELEASE/'` = 3.x-RELEASE
+then
+  AM_PROG_LEX
+else
+# La ligne qui suit est supprimée à cause d'un problème de aclocal -> à remettre
+  AC_PROG_LEX
+# La ligne qui suit est supprimée à cause d'un problème de aclocal -> à remettre
+  AC_DECL_YYTEXT
+fi
+
+# We make intensive use of ioctl
+AC_PROG_GCC_TRADITIONAL
+
+# Some scripts are installed
+# La ligne qui suit est supprimée à cause d'un problème de aclocal -> à remettre
+AM_PROG_INSTALL
+# La ligne qui suit est rajoutée à cause d'un problème de aclocal -> à enlever
+#AC_PROG_INSTALL
+
+missing_dir=`cd $ac_aux_dir && pwd`
+AM_MISSING_PROG(ACLOCAL,    aclocal,    $missing_dir)
+AM_MISSING_PROG(AUTOCONF,   autoconf,   $missing_dir)
+AM_MISSING_PROG(AUTOMAKE,   automake,   $missing_dir)
+AM_MISSING_PROG(AUTOHEADER, autoheader, $missing_dir)
+AM_MISSING_PROG(MAKEINFO,   makeinfo,   $missing_dir)
+
+AC_PROG_LN_S
+AC_PROG_RANLIB
+
+AC_SUBST(WITH_STABS)
+AC_SUBST(WITH_KLD)
+AC_SUBST(KERNEL_FILE)
+AC_SUBST(X_HOSTS)
+AC_SUBST(HOST1)
+AC_SUBST(HOST2)
+AC_SUBST(X_SHELL)
+AC_SUBST(DEBUG_FLAGS)
+AC_SUBST(WORKAROUND_FLAGS)
+AC_SUBST(SMP_FLAGS_1)
+AC_SUBST(SMP_FLAGS_2)
+AC_SUBST(SMP_FLAGS_3)
+AC_SUBST(LIBXFORMS)
+AC_SUBST(PERL)
+AC_SUBST(LOOPBACK)
+
+# Looking for ordinary programs
+AC_PATH_PROG(TRUE,       true,  /bin/true)
+AC_PATH_PROG(FALSE,      false, /bin/false)
+AC_PATH_PROG(CAT,        cat)
+AC_PATH_PROG(CP,         cp)
+AC_PATH_PROG(MV,         mv)
+AC_PATH_PROG(AR,         ar)
+AC_PATH_PROG(MAKEDEPEND, makedepend)
+AC_PATH_PROG(CHMOD,      chmod)
+AC_PATH_PROG(MODLOAD,    modload)
+AC_PATH_PROG(MODUNLOAD,  modunload)
+AC_PATH_PROG(MODSTAT,    modstat)
+AC_PATH_PROG(MKNOD,      mknod)
+AC_PATH_PROG(RM,         rm)
+AC_PATH_PROG(LS,         ls)
+AC_PATH_PROG(ID,         id)
+AC_PATH_PROG(TEST,       test, /bin/test)
+AC_PATH_PROG(CUT,        cut)
+AC_PATH_PROG(SED,        sed)
+AC_PATH_PROG(HOSTNAME,   hostname)
+AC_PATH_PROG(GREP,       grep)
+AC_PATH_PROG(MKDIR,      mkdir)
+AC_PATH_PROG(RPCGEN,     rpcgen)
+AC_PATH_PROG(TOUCH,      touch)
+AC_PATH_PROG(MAKEINFO,   makeinfo)
+AC_PATH_PROG(ECHO,       echo)
+AC_PATH_PROG(M4,         m4)
+AC_PATH_PROG(NM,         nm)
+AC_PATH_PROG(LD,         ld)
+AC_PATH_PROG(AS,         as)
+AC_PATH_PROG(AUTOMAKE,   automake)
+AC_PATH_PROG(AUTOCONF,   autoconf)
+AC_PATH_PROG(AUTOHEADER, autoheader)
+AC_PATH_PROG(WC,         wc)
+AC_PATH_PROG(LIMITS,     limits)
+AC_PATH_PROG(TR,         tr)
+AC_PATH_PROG(PERL,       perl5)
+AC_PATH_PROG(GENSETDEFS, gensetdefs)
+AC_PATH_PROG(KLDSTAT,    kldstat)
+AC_PATH_PROG(KLDLOAD,    kldload)
+AC_PATH_PROG(KLDUNLOAD,  kldunload)
+
+# For --enable-start-x
+AC_PATH_PROG(XTERM,      xterm)
+AC_PATH_PROG(RSH,        rsh)
+AC_PATH_PROG(CSH,        csh)
+AC_PATH_PROG(ZSH,        zsh)
+AC_PATH_PROG(PWD,        pwd)
+AC_PATH_PROG(XHOST,      xhost)
+
+# Checking system interpreter
+AC_SYS_INTERPRETER
+if $TEST "$ac_cv_sys_interpreter" != yes
+then
+  AC_MSG_ERROR([$target_os doesn't seem to support #! interpreters])
+fi
+
+# Check that the OS is FreeBSD and that the version is up to date
+
+if $TEST -z "$CAT" -o -z "$ECHO" -o -z "$GREP"
+then
+  AC_MSG_ERROR([please install the above utilities that are not present])
+fi
+
+if $TEST ! `$ECHO $target_os | $GREP freebsd`
+then
+  AC_MSG_ERROR($target_os is not a supported operating system)
+fi
+
+AC_CHECK_HEADER(osreldate.h, ,
+  AC_MSG_ERROR([update to a more recent version of FreeBSD (>=2.2.5)]))
+
+if $TEST ! `$ECHO $target_os | $GREP freebsd`
+then
+  AC_MSG_ERROR($target_os is not a supported operating system)
+fi
+
+AC_TRY_RUN([
+#include <osreldate.h>
+extern int getosreldate(void);
+int
+main(void) {
+  if (getosreldate() - 222000 >= 0) return 0;
+  return 1;
+}
+], ,
+AC_MSG_ERROR([update to a more recent version of FreeBSD (>=2.2.2)]),
+AC_MSG_ERROR([cross compiling not supported]))
+
+# Check that all the utilities are present
+
+# All but makeinfo, automake, autoconf, autoheader, zsh
+if $TEST -z "$TRUE" -o -z "$FALSE" -o -z "$CAT" -o -z "$CP" \
+   -o -z "$MV" -o -z "$AR" \
+   -o -z "$MAKEDEPEND" -o -z "$CHMOD" -o -z "$MODLOAD" \
+   -o -z "$MODUNLOAD" -o -z "$MODSTAT" -o -z "$MKNOD" \
+   -o -z "$RM" -o -z "$LS" -o -z "$ID" -o -z "$TEST" \
+   -o -z "$CUT" -o -z "$SED" -o -z "$HOSTNAME" -o -z "$GREP" \
+   -o -z "$MKDIR" -o -z "$RPCGEN" -o -z "$TOUCH" \
+   -o -z "$ECHO" -o -z "$M4" -o -z "$NM" -o -z "$LD" -o -z "$AS" \
+   -o -z "$WC" -o -z "$XTERM" -o -z "$RSH" -o -z "$CSH" \
+   -o -z "$PWD" -o -z "$XHOST" -o -z "$LIMITS" \
+   -o -z "$TR"
+then
+  AC_MSG_ERROR([please install the above utilities that are not present])
+fi
+
+# Looking for perl5 or higher
+if $TEST -z "$PERL"
+then
+  AC_MSG_RESULT([looking for perl5])
+  save_ifs="$IFS"
+  IFS="${IFS}:"
+  for dir in $PATH
+  do
+    $TEST -z "$dir" && dir=.
+    AC_MSG_RESULT([checking for perl in $dir])
+    if $TEST -f $dir/perl &&
+             $dir/perl MPC_OS/transcript.pl < MPC_OS/distobj.dist.h \
+                                            > /dev/null 2>&1
+    then
+      PERL="$dir/perl"
+      break
+    fi
+  done
+  IFS="$save_ifs"
+fi
+
+if $TEST -z "$PERL"
+then
+  AC_MSG_ERROR([please install perl5 or higher])
+fi
+
+# headers...
+AC_STDC_HEADERS
+
+# Check that the POSIX threads library is installed
+AC_CHECK_LIB(c_r, pthread_create, $TRUE,
+  AC_MSG_ERROR([please install the posix threads library (man pthread)]))
+
+AC_ARG_ENABLE(alternate-kernel,
+  [  --enable-alternate-kernel=ARG
+                          specify an alternate kernel to work with],
+  AC_DEFINE(KERNEL_FILE, "$enable_alternate_kernel")
+  KERNEL_FILE="$enable_alternate_kernel",
+  AC_DEFINE(KERNEL_FILE, "/kernel")
+  KERNEL_FILE="/kernel")
+
+AC_MSG_RESULT([kernel name : "$KERNEL_FILE"])
+
+# Check that Xpm is installed / Set the SMP parameters
+if $TEST `/usr/bin/uname -r | /usr/bin/sed 's/^\(..\).*-RELEASE/\1x-RELEASE/'` = 3.x-RELEASE
+then
+  AC_DEFINE(_SMP_SUPPORT)
+  SMP_FLAGS_1="-I/usr/include -I/sys"
+  SMP_FLAGS_2="-D_SMP_SUPPORT"
+  if $NM -a $KERNEL_FILE | $GREP SMP_ioapic > /dev/null
+  then
+    SMP_FLAGS_2=$SMP_FLAGS_2" -D_SMP_KERNEL"
+    AC_DEFINE(_SMP_KERNEL)
+    $ECHO "enabling SMP support"
+  fi
+  SMP_FLAGS_3="-aout"
+#  LIBXFORMS="-lforms"
+  LIBXFORMS="-lxforms"
+# This doesn't work, should be corrected :
+## Check that Xpm is installed
+#AC_CHECK_LIB(Xpm, XpmReadFileToImage, $TRUE,
+#  AC_MSG_ERROR([please install Xpm]), -lXt -lX11)
+else
+  LIBXFORMS="-lxforms"
+  AC_CHECK_LIB(Xpm, XpmReadFileToImage, $TRUE,
+    AC_MSG_ERROR([please install Xpm]))
+fi
+
+# Check that xforms is installed
+if $TEST `/usr/bin/uname -r | /usr/bin/sed 's/^\(..\).*-RELEASE/\1x-RELEASE/'` = 3.x-RELEASE
+then
+# XXX
+else
+  AC_CHECK_LIB(xforms, fl_init_font, $TRUE,
+    AC_MSG_ERROR([please install xforms]))
+fi
+
+# Check that X11 is installed
+if $TEST `/usr/bin/uname -r | /usr/bin/sed 's/^\(..\).*-RELEASE/\1x-RELEASE/'` = 3.x-RELEASE
+then
+# XXX
+else
+  AC_CHECK_LIB(X11, XOpenDisplay, $TRUE,
+    AC_MSG_ERROR([please install X11]))
+fi
+
+# Check that enough memory is available to compile the package
+LIMIT_DATASIZE=`$LIMITS -d -S | $GREP datasize | $TR a-z- ' ' | $SED 's/ //g'`
+if $TEST $LIMIT_DATASIZE -lt 64000
+then
+  AC_MSG_WARN([only $LIMIT_DATASIZE kb available in data segments :
+the package may not compile because of a lack of memory (man ulimit)])
+fi
+
+AC_ARG_ENABLE(stabs-pcibus,
+  [  --disable-stabs-pcibus  require launching init_pcibus after modload],
+  if $TEST "$enable_stabs_pcibus" != no
+  then
+    AC_DEFINE(WITH_STABS_PCIBUS_SET)
+    AC_MSG_RESULT([enabling pcibus_set management with stabs at modload time])
+    WITH_STABS=yes
+  else
+    AC_DEFINE(WITHOUT_STABS_PCIBUS_SET)
+    AC_MSG_RESULT([please start init_pcibus after loading module])
+    WITH_STABS=no
+  fi,
+  AC_DEFINE(WITH_STABS_PCIBUS_SET)
+  AC_MSG_RESULT([enabling pcibus_set management with stabs at modload time])
+  WITH_STABS=yes)
+
+AC_ARG_ENABLE(kld,
+  [  --disable-kld           require lkm to be used instead of kld],
+  if $TEST "$enable_kld" != no
+  then
+    AC_DEFINE(WITH_KLD)
+    AC_MSG_RESULT([enabling kernel module type : KLD])
+    WITH_KLD=yes
+    SMP_FLAGS_3="-elf"
+  else
+    AC_DEFINE(WITHOUT_KLD)
+    AC_MSG_RESULT([enabling kernel module type : LKM])
+    WITH_KLD=no
+  fi,
+  AC_DEFINE(WITH_KLD)
+  AC_MSG_RESULT([enabling kernel module type : KLD])
+  WITH_KLD=yes
+  SMP_FLAGS_3="-elf")
+
+AC_ARG_ENABLE(start-x,
+  [  --enable-start-x=host1/host2
+                          specify two hosts the package must run on],
+  X_HOSTS="$enable_start_x"
+  if $TEST -z "$ECHO" -o -z "$CUT"
+  then
+    AC_MSG_ERROR([can't handle --enable-start-x]) 
+  fi
+  HOST1=`$ECHO $X_HOSTS | $CUT -f 1 -d /`
+  HOST2=`$ECHO $X_HOSTS | $CUT -f 2 -d /`
+  if $TEST -z "$XTERM" -o -z "$RSH" -o -z "$CSH" -o -z "$PWD" -o -z "$XHOST"
+  then
+    AC_MSG_ERROR([can't handle --enable-start-x]) 
+  fi
+  if $TEST ! -z "$ZSH"
+  then
+    X_SHELL=$ZSH
+    AC_MSG_RESULT([zsh installed - xterms will run it !])
+  else
+    X_SHELL=$CSH
+    AC_MSG_RESULT([zsh not installed - xterms will run csh])
+  fi
+  AC_MSG_RESULT([ready to run on "$X_HOSTS" - don't forget to allow rsh to those hosts]),
+  X_HOSTS="no"
+  HOST1=no-host1.no-domain.no-tld
+  HOST2=no-host2.no-domain.no-tld)
+
+AC_ARG_ENABLE(secure-protocol,
+  [  --enable-secure-protocol
+                          build the secure version of the protocol],
+  if $TEST "$enable_secure_protocol" = yes
+  then
+    AC_MSG_WARN([enabling the secure version])
+    AC_DEFINE(_WITH_DDSCP)
+# _WITH_DDSCP implies _MULTIPLE_CPA
+    AC_DEFINE(_MULTIPLE_CPA)
+  else
+    AC_MSG_RESULT([disabling the secure version])
+    AC_DEFINE(_WITHOUT_DDSCP)
+  fi,
+  AC_MSG_RESULT([disabling the secure version])
+  AC_DEFINE(_WITHOUT_DDSCP))
+
+AC_ARG_ENABLE(monitor,
+  [  --enable-monitor        build the reconfigurable version of the package],
+  if $TEST "$enable_monitor" = yes
+  then
+    AC_MSG_WARN([enabling the reconfigurable version : beware at the crash !])
+    AC_DEFINE(_WITH_MONITOR)
+  else
+    AC_MSG_RESULT([disabling the reconfigurable version])
+    AC_DEFINE(_WITHOUT_MONITOR)
+  fi,
+  AC_MSG_RESULT([disabling the reconfigurable version])
+  AC_DEFINE(_WITHOUT_MONITOR))
+
+AC_ARG_ENABLE(debug,
+  [  --enable-debug          generate debugging and warning code <default>],
+  if $TEST "$enable_debug" = yes
+  then
+    DEBUG_FLAGS=-DDEBUG_HSL
+    AC_MSG_RESULT([generate debugging code])
+  else
+    DEBUG_FLAGS=""
+    AC_MSG_RESULT([no debugging code inserted])
+  fi,
+  DEBUG_FLAGS=-DDEBUG_HSL
+  AC_MSG_RESULT([generate debugging code]))
+
+AC_ARG_ENABLE(soft-workaround,
+  [  --enable-soft-workaround generate software workaround code for PCIDDC],
+  if $TEST "$enable_soft_workaround" = no
+  then
+    WORKAROUND_FLAGS=-DPCIDDC2ndRun
+    AC_MSG_RESULT([no workaround code inserted for PCIDDC])
+  else
+    WORKAROUND_FLAGS="-DPCIDDC1stRun"
+    AC_MSG_RESULT([generate workaround code for PCIDDC 1st run])
+  fi,
+  WORKAROUND_FLAGS=-DPCIDDC1stRun
+  AC_MSG_RESULT([generate workaround code for PCIDDC 1st run]))
+
+AC_ARG_ENABLE(perfmon,
+  [  --enable-perfmon        generate performance monitoring code],
+  if $TEST "$enable_perfmon" = yes
+  then
+    DEBUG_FLAGS="$DEBUG_FLAGS -DMPC_PERFMON"
+    AC_MSG_RESULT([generate performance monitoring code])
+    AC_MSG_RESULT([you may compile a kernel without KTRACE to get better performances])
+  else
+    AC_MSG_RESULT([no performance monitoring code inserted])
+  fi,
+  AC_MSG_RESULT([no performance monitoring code inserted]))
+
+AC_ARG_ENABLE(stats,
+  [  --enable-stats          generate statistics code <default>],
+  if $TEST "$enable_stats" = yes
+  then
+    DEBUG_FLAGS="$DEBUG_FLAGS -DMPC_STATS"
+    AC_MSG_RESULT([generate statistics code])
+  else
+    AC_MSG_RESULT([no statistics code inserted])
+  fi,
+    DEBUG_FLAGS="$DEBUG_FLAGS -DMPC_STATS"
+    AC_MSG_RESULT([generate statistics code]))
+
+AC_ARG_ENABLE(loopback,
+  [  --enable-loopback       generate loopback code],
+  if $TEST "$enable_loopback" = yes
+  then
+    AC_DEFINE(WITH_LOOPBACK)
+    AC_MSG_RESULT([generate loopback code])
+  else
+    AC_DEFINE(WITHOUT_LOOPBACK)
+    AC_MSG_RESULT([no loopback code generated])
+  fi,
+    AC_DEFINE(WITHOUT_LOOPBACK)
+    AC_MSG_RESULT([no loopback code generated]))
+
+# create the Makefiles
+AC_OUTPUT(Makefile src/Makefile modules/Makefile examples/Makefile
+          MPC_OS/Makefile config_mpc/Makefile
+          mpcview/Makefile routing/Makefile)
+
+# EOF

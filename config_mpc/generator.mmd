@@ -1,0 +1,29 @@
+	component generator
+	begin
+
+	   interface
+		bidirectional north link[0][2];
+	   end
+
+           node configuration
+
+	      unsigned label,
+                       range;
+	   end
+   
+	   component configuration
+                int    flit=32;
+                int   message_length=64;
+                float generation_rate=0.6;
+	   end
+
+	   probes
+             shared long    max_delay;
+             shared float   mean_delay;
+             shared long    generated_messages;
+             shared long    received_messages;
+             shared float   throughput;
+             shared float    bandwidth;
+             shared long    side_links;
+          end
+	end
